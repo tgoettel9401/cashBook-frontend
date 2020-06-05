@@ -1,0 +1,14 @@
+<br>
+
+<h1 style="padding-left: 15px">Cash Books</h1>
+<mat-list>
+
+    <mat-list-item *ngFor="let cashBook of cashBooks">
+      <a [routerLink]="[cashBook.id]">
+        {{cashBook.name}}
+      </a>
+    </mat-list-item>
+
+</mat-list>
+
+<br>

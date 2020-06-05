@@ -7,18 +7,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
-import {LayoutModule} from "@angular/cdk/layout";
+import {LayoutModule} from '@angular/cdk/layout';
 
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatButtonModule} from "@angular/material/button";
-import {MatTableModule} from "@angular/material/table";
+// Angular Material imports
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+import {MatListModule} from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
+
+// Internal imports
+import { CashBookListComponent } from './cash-book-list/cash-book-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CashBookEntryTableComponent
+    CashBookEntryTableComponent,
+    CashBookListComponent
   ],
   imports: [
     BrowserModule,
@@ -28,9 +35,13 @@ import {MatTableModule} from "@angular/material/table";
     LayoutModule,
     FormsModule,
     ReactiveFormsModule,
+
+    // Angular Material
     MatToolbarModule,
     MatButtonModule,
     MatTableModule,
+    MatListModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

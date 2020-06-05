@@ -1,29 +1,31 @@
 <br>
 
-<div class="accordion">
-  <mat-table  [dataSource]="dataSource" matSort>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<h1 style="padding-left: 15px">$$CashBookName$$-Details </h1>
 
-    <!-- Number of the entry -->
-    <ng-container matColumnDef="number">
-        <mat-header-cell *matHeaderCellDef>Number</mat-header-cell>
-        <mat-cell *matCellDef>1</mat-cell>
-    </ng-container>   
+<mat-table  [dataSource]="dataSource" matSort>
 
-    <ng-container matColumnDef="value-date">
-        <mat-header-cell *matHeaderCellDef>Datum</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.valueDate}}</mat-cell>
-    </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 
-    <ng-container matColumnDef="purpose">
-        <mat-header-cell *matHeaderCellDef>Verwendungszweck</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.purpose}}</mat-cell>
-    </ng-container>
+  <!-- Number of the entry -->
+  <ng-container matColumnDef="number">
+      <mat-header-cell *matHeaderCellDef>Number</mat-header-cell>
+      <mat-cell *matCellDef>1</mat-cell>
+  </ng-container>
 
-    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  <ng-container matColumnDef="value-date">
+      <mat-header-cell *matHeaderCellDef>Datum</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.valueDate}}</mat-cell>
+  </ng-container>
 
-  </mat-table>
-</div>
+  <ng-container matColumnDef="purpose">
+      <mat-header-cell *matHeaderCellDef>Verwendungszweck</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.purpose}}</mat-cell>
+  </ng-container>
+
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+</mat-table>
+
 
 <br>

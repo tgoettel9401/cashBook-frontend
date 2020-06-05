@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import {CashBookEntry} from '../models/cashBookEntry';
+import { CashBookEntry } from '../models/cashBookEntry';
 import { CashBookEntryService } from '../services/cash-book-entry.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
@@ -16,8 +16,8 @@ export class CashBookEntryTableComponent implements OnInit {
 
   // Table Fields
   dataSource: MatTableDataSource<CashBookEntry>;
-  displayedColumns: string[]; 
-  @ViewChild(MatSort) sort: MatSort; 
+  displayedColumns: string[];
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private cashBookEntryService: CashBookEntryService,
@@ -25,12 +25,12 @@ export class CashBookEntryTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCashBookEntries();
-    this.displayedColumns = ["number", "value-date", "purpose"];
+    this.displayedColumns = ['number', 'value-date', 'purpose'];
   }
 
   getAllCashBookEntries(): void {
     this.cashBookEntryService.getAll().subscribe(
-      data => this.cashBookEntries = data._embedded.cashBookEntries,
+      data => this.cashBookEntries = data,
       error => console.log(error),
       () => this.updateTable()
     );
@@ -38,7 +38,7 @@ export class CashBookEntryTableComponent implements OnInit {
 
   updateTable(): void {
     this.dataSource = new MatTableDataSource<CashBookEntry>(this.cashBookEntries);
-    this.dataSource.sort = this.sort; 
+    this.dataSource.sort = this.sort;
   }
 
 }
