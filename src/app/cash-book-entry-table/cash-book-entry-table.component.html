@@ -1,28 +1,47 @@
 <h1 *ngIf="cashBook" style = "padding-left: 15px">{{cashBook.name}}-Details </h1>
 
-<mat-table  [dataSource]="dataSource" matSort>
-
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<table mat-table [dataSource]="dataSource" matSort>
 
   <!-- Number of the entry -->
-  <ng-container matColumnDef="number">
-      <mat-header-cell *matHeaderCellDef>Number</mat-header-cell>
-      <mat-cell *matCellDef>1</mat-cell>
+  <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>Position</th>
+      <td mat-cell *matCellDef="let element">{{element.position}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="income-expense-position">
+      <th mat-header-cell *matHeaderCellDef>Ausgabe/Einnahme</th>
+      <td mat-cell *matCellDef="let element">{{element.incomeExpensePosition}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Titel</th>
+      <td mat-cell *matCellDef="let element">{{element.title}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="income">
+      <th mat-header-cell *matHeaderCellDef>Einnahmen</th>
+      <td mat-cell *matCellDef="let element">{{element.income}} €</td>
+  </ng-container>
+
+  <ng-container matColumnDef="expense">
+      <th mat-header-cell *matHeaderCellDef>Ausgaben</th>
+      <td mat-cell *matCellDef="let element">{{element.expense}} €</td>
+  </ng-container>
+
+  <ng-container matColumnDef="receiver-sender">
+      <th mat-header-cell *matHeaderCellDef>Empfänger/Sender</th>
+      <td mat-cell *matCellDef="let element">{{element.receiverSender}}</td>
   </ng-container>
 
   <ng-container matColumnDef="value-date">
-      <mat-header-cell *matHeaderCellDef>Datum</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.valueDate}}</mat-cell>
+      <th mat-header-cell *matHeaderCellDef>Datum</th>
+      <td mat-cell *matCellDef="let element">{{element.valueDate}}</td>
   </ng-container>
 
-  <ng-container matColumnDef="purpose">
-      <mat-header-cell *matHeaderCellDef>Verwendungszweck</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.purpose}}</mat-cell>
-  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
-  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-
-</mat-table>
+</table>
 
 
 <br>

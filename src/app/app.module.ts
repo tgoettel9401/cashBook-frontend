@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CashBookEntryTableComponent } from './cash-book-entry-table/cash-book-entry-table.component';
@@ -17,6 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 // Internal imports
 import { CashBookListComponent } from './cash-book-list/cash-book-list.component';
@@ -42,8 +43,12 @@ import { CashBookListComponent } from './cash-book-list/cash-book-list.component
     MatTableModule,
     MatListModule,
     MatCardModule,
+    MatFormFieldModule,
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'de',
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

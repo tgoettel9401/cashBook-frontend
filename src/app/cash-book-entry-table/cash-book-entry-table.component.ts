@@ -33,7 +33,7 @@ export class CashBookEntryTableComponent implements OnInit {
     const cashBookId = +this.route.snapshot.paramMap.get('id');
     this.getCashBook(cashBookId);
     this.getAllCashBookEntries(cashBookId);
-    this.displayedColumns = ['number', 'value-date', 'purpose'];
+    this.displayedColumns = ['position', 'income-expense-position', 'title', 'income', 'expense', 'receiver-sender', 'value-date'];
   }
 
   getCashBook(cashBookId: number): void {
