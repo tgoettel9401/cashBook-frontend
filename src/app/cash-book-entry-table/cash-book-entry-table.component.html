@@ -1,7 +1,4 @@
-<br>
-
-
-<h1 style="padding-left: 15px">$$CashBookName$$-Details </h1>
+<h1 *ngIf="cashBook" style = "padding-left: 15px">{{cashBook.name}}-Details </h1>
 
 <mat-table  [dataSource]="dataSource" matSort>
 

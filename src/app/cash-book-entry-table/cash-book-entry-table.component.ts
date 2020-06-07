@@ -4,6 +4,9 @@ import { CashBookEntry } from '../models/cashBookEntry';
 import { CashBookEntryService } from '../services/cash-book-entry.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { ActivatedRoute } from '@angular/router';
+import { CashBook } from '../models/cashBook';
+import { CashBookService } from '../services/cash-book.service';
 
 @Component({
   selector: 'app-cash-book-entry-table',
@@ -12,6 +15,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class CashBookEntryTableComponent implements OnInit {
 
+  cashBook: CashBook;
   cashBookEntries: CashBookEntry[];
 
   // Table Fields
@@ -21,15 +25,26 @@ export class CashBookEntryTableComponent implements OnInit {
 
   constructor(
     private cashBookEntryService: CashBookEntryService,
+    private cashBookService: CashBookService,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
-    this.getAllCashBookEntries();
+    const cashBookId = +this.route.snapshot.paramMap.get('id');
+    this.getCashBook(cashBookId);
+    this.getAllCashBookEntries(cashBookId);
     this.displayedColumns = ['number', 'value-date', 'purpose'];
   }
 
-  getAllCashBookEntries(): void {
-    this.cashBookEntryService.getAll().subscribe(
+  getCashBook(cashBookId: number): void {
+    this.cashBookService.getById(cashBookId).subscribe(
+      data => this.cashBook = data,
+      error => console.log(error),
+    );
+  }
+
+  getAllCashBookEntries(cashBookId: number): void {
+    this.cashBookEntryService.getAllForCashBook(cashBookId).subscribe(
       data => this.cashBookEntries = data,
       error => console.log(error),
       () => this.updateTable()

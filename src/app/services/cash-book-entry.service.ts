@@ -23,4 +23,15 @@ export class CashBookEntryService {
           })
       );
   }
+
+  getAllForCashBook(cashBookId: number): Observable<CashBookEntry[]> {
+    return this.httpClient.get<CashBookEntry[]>('//localhost:8080/api/cashBooks/' + cashBookId + '/cashBookEntries')
+    .pipe(
+      map(
+        (result: any) => {
+          return result._embedded.cashBookEntries;
+        }
+      )
+    );
+  }
 }

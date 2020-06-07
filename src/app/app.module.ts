@@ -25,7 +25,7 @@ import { CashBookListComponent } from './cash-book-list/cash-book-list.component
   declarations: [
     AppComponent,
     CashBookEntryTableComponent,
-    CashBookListComponent
+    CashBookListComponent,
   ],
   imports: [
     BrowserModule,

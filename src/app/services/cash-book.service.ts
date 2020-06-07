@@ -24,4 +24,8 @@ export class CashBookService {
           })
       );
   }
+
+  getById(cashBookId: number): Observable<CashBook> {
+    return this.httpClient.get<CashBook>('//localhost:8080/api/cashBooks/' + cashBookId);
+  }
 }
