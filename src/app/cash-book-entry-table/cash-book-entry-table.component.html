@@ -20,12 +20,12 @@
 
   <ng-container matColumnDef="income">
       <th mat-header-cell *matHeaderCellDef>Einnahmen</th>
-      <td mat-cell *matCellDef="let element">{{element.income}} €</td>
+      <td mat-cell *matCellDef="let element">{{element.income | currency:'EUR'}}</td>
   </ng-container>
 
   <ng-container matColumnDef="expense">
       <th mat-header-cell *matHeaderCellDef>Ausgaben</th>
-      <td mat-cell *matCellDef="let element">{{element.expense}} €</td>
+      <td mat-cell *matCellDef="let element">{{element.expense | currency:'EUR'}}</td>
   </ng-container>
 
   <ng-container matColumnDef="receiver-sender">

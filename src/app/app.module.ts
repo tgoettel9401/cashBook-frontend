@@ -21,12 +21,16 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 // Internal imports
 import { CashBookListComponent } from './cash-book-list/cash-book-list.component';
+import { UploadFileComponent } from './upload-file/upload-file.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
     AppComponent,
     CashBookEntryTableComponent,
     CashBookListComponent,
+    UploadFileComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,8 @@ import { CashBookListComponent } from './cash-book-list/cash-book-list.component
     MatListModule,
     MatCardModule,
     MatFormFieldModule,
+    MatProgressBarModule,
+    MatSnackBarModule,
   ],
   providers: [{
     provide: LOCALE_ID,

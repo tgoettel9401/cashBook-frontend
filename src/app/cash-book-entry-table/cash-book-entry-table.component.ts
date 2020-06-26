@@ -8,6 +8,10 @@ import { ActivatedRoute } from '@angular/router';
 import { CashBook } from '../models/cashBook';
 import { CashBookService } from '../services/cash-book.service';
 
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
+registerLocaleData(localeDe, 'de');
+
 @Component({
   selector: 'app-cash-book-entry-table',
   templateUrl: './cash-book-entry-table.component.html',
