@@ -18,12 +18,14 @@ import {MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTabsModule} from '@angular/material/tabs';
 
 // Internal imports
 import { CashBookListComponent } from './cash-book-list/cash-book-list.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CashBookDetailsComponent } from './cash-book-details/cash-book-details.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     CashBookEntryTableComponent,
     CashBookListComponent,
     UploadFileComponent,
+    CashBookDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatProgressBarModule,
     MatSnackBarModule,
+    MatTabsModule,
   ],
   providers: [{
     provide: LOCALE_ID,

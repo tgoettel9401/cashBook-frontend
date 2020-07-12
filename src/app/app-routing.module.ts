@@ -4,10 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { CashBookEntryTableComponent } from './cash-book-entry-table/cash-book-entry-table.component';
 import { CashBookListComponent } from './cash-book-list/cash-book-list.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
+import { CashBookDetailsComponent } from './cash-book-details/cash-book-details.component';
 const routes: Routes = [
   { path: '', redirectTo: 'cashBooks', pathMatch: 'full' },
   { path: 'cashBooks', component: CashBookListComponent},
-  { path: 'cashBooks/:id', component: CashBookEntryTableComponent },
+  { path: 'cashBooks/:id', component: CashBookDetailsComponent },
   { path: 'fileUpload', component: UploadFileComponent},
 ];
 
