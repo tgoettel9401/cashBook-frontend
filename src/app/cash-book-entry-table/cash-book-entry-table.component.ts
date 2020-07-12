@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 
 import { CashBookEntry } from '../models/cashBookEntry';
 import { CashBookEntryService } from '../services/cash-book-entry.service';
@@ -19,7 +19,7 @@ registerLocaleData(localeDe, 'de');
 })
 export class CashBookEntryTableComponent implements OnInit {
 
-  cashBook: CashBook;
+  @Input() cashBook: CashBook;
   cashBookEntries: CashBookEntry[];
 
   // Table Fields
@@ -30,21 +30,11 @@ export class CashBookEntryTableComponent implements OnInit {
   constructor(
     private cashBookEntryService: CashBookEntryService,
     private cashBookService: CashBookService,
-    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
-    const cashBookId = +this.route.snapshot.paramMap.get('id');
-    this.getCashBook(cashBookId);
-    this.getAllCashBookEntries(cashBookId);
+    this.getAllCashBookEntries(this.cashBook.id);
     this.displayedColumns = ['position', 'income-expense-position', 'title', 'income', 'expense', 'receiver-sender', 'value-date'];
-  }
-
-  getCashBook(cashBookId: number): void {
-    this.cashBookService.getById(cashBookId).subscribe(
-      data => this.cashBook = data,
-      error => console.log(error),
-    );
   }
 
   getAllCashBookEntries(cashBookId: number): void {

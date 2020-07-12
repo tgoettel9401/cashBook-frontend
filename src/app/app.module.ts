@@ -26,6 +26,7 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CashBookDetailsComponent } from './cash-book-details/cash-book-details.component';
+import { CashBookEntryBudgetTableComponent } from './cash-book-entry-budget-table/cash-book-entry-budget-table.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CashBookDetailsComponent } from './cash-book-details/cash-book-details.
     CashBookListComponent,
     UploadFileComponent,
     CashBookDetailsComponent,
+    CashBookEntryBudgetTableComponent,
   ],
   imports: [
     BrowserModule,

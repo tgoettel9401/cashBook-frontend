@@ -1,9 +1,11 @@
 
 <h1 *ngIf="cashBook" style = "padding-left: 15px">{{cashBook.name}} </h1>
 
-<mat-tab-group>
+<mat-tab-group *ngIf="cashBook">
   <mat-tab label="Bulletin">
-    <app-cash-book-entry-table></app-cash-book-entry-table>
+    <app-cash-book-entry-table [cashBook] = "cashBook"></app-cash-book-entry-table>
   </mat-tab>
-  <mat-tab label="Budget">Haushalt</mat-tab>
+  <mat-tab label="Budget">
+    <app-cash-book-entry-budget-table [cashBook]= "cashBook"></app-cash-book-entry-budget-table>
+  </mat-tab>
 </mat-tab-group>
