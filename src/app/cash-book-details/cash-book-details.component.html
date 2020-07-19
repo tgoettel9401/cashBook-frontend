@@ -1,6 +1,24 @@
 
 <h1 *ngIf="cashBook" style = "padding-left: 15px">{{cashBook.name}} </h1>
 
+<mat-card style="margin: 15px;">
+  <table>
+    <tr>
+      <td>Ist-Vermögen (01.01.2020): </td>
+      <td style="padding-left: 25px;">{{ cashBook.initialWealth | currency:'EUR'}}</td>
+      <td style="padding-left: 100px;">Ist-Vermögen (31.12.2020): </td>
+      <td style="padding-left: 25px;">{{cashBook.finalWealth | currency:'EUR'}}</td>
+    </tr>
+    <br>
+    <tr>
+      <td>Kalkulatorischer Vermögensstand (01.01.2020): </td>
+      <td style="padding-left: 25px;">{{ cashBook.calculatedInitialWealth | currency:'EUR'}} </td>
+      <td style="padding-left: 100px;">Kalkulatorischer Vermögensstand (31.12.2020): </td>
+      <td style="padding-left: 25px;">{{cashBook.calculatedFinalWealth | currency:'EUR'}}</td>
+    </tr>
+  </table>
+</mat-card>
+
 <mat-tab-group *ngIf="cashBook">
   <mat-tab label="Bulletin">
     <app-cash-book-entry-table [cashBook] = "cashBook"></app-cash-book-entry-table>

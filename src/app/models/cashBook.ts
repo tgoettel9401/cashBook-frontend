@@ -3,5 +3,7 @@ export interface CashBook {
   name: string;
   accountNumber: string;
   initialWealth: number;
-  initialCalculatedWealth: number;
+  calculatedInitialWealth: number;
+  finalWealth: number;
+  calculatedFinalWealth: number;
 }
