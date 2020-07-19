@@ -5,7 +5,7 @@
   <table>
     <tr>
       <td>Ist-Vermögen (01.01.2020): </td>
-      <td style="padding-left: 25px; float: right;">{{ cashBook.initialWealth | currency:'EUR'}}</td>
+      <td style="padding-left: 25px; float: right;">{{cashBook.initialWealth | currency:'EUR'}}</td>
       <td style="padding-left: 100px;">Ist-Vermögen (31.12.2020): </td>
       <td style="padding-left: 25px; float: right;">{{cashBook.finalWealth | currency:'EUR'}}</td>
       <td style="padding-left: 100px;"><strong>Ergebnis: </strong></td>
@@ -14,7 +14,7 @@
     <br>
     <tr>
       <td>Kalkulatorischer Vermögensstand (01.01.2020): </td>
-      <td style="padding-left: 25px; float: right;">{{ cashBook.calculatedInitialWealth | currency:'EUR'}} </td>
+      <td style="padding-left: 25px; float: right;">{{cashBook.calculatedInitialWealth | currency:'EUR'}} </td>
       <td style="padding-left: 100px;">Kalkulatorischer Vermögensstand (31.12.2020): </td>
       <td style="padding-left: 25px; float: right;">{{cashBook.calculatedFinalWealth | currency:'EUR'}}</td>
       <td style="padding-left: 100px;"><strong>Kalkulatorisches Ergebnis: </strong></td>
