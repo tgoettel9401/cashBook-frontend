@@ -6,4 +6,6 @@ export interface CashBook {
   calculatedInitialWealth: number;
   finalWealth: number;
   calculatedFinalWealth: number;
+  result: number;
+  calculatedResult: number;
 }
