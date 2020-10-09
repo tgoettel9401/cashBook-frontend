@@ -10,6 +10,8 @@ import { CashBook } from '../models/cashBook';
 })
 export class CashBookDetailsComponent implements OnInit {
 
+  edit = false;
+
   cashBook: CashBook;
 
   constructor(
@@ -27,6 +29,21 @@ export class CashBookDetailsComponent implements OnInit {
       data => this.cashBook = data,
       error => console.log(error),
     );
+  }
+
+  clickEditButton(): void {
+    this.edit = true;
+  }
+
+  clickSaveButton(cashBook: CashBook): void {
+    // Save data first
+    this.cashBookService.putCashBook(cashBook).subscribe(
+      data => this.cashBook = data,
+      error => console.log(error),
+    )
+
+    // Set edit to false.
+    this.edit = false;
   }
 
 }

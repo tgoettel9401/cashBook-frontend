@@ -19,6 +19,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
 
 // Internal imports
 import { CashBookListComponent } from './cash-book-list/cash-book-list.component';
@@ -56,6 +58,8 @@ import { CashBookEntryBudgetTableComponent } from './cash-book-entry-budget-tabl
     MatProgressBarModule,
     MatSnackBarModule,
     MatTabsModule,
+    MatIconModule,
+    MatInputModule,
   ],
   providers: [{
     provide: LOCALE_ID,
