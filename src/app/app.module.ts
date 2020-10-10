@@ -21,6 +21,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 // Internal imports
 import { CashBookListComponent } from './cash-book-list/cash-book-list.component';
@@ -60,6 +61,7 @@ import { CashBookEntryBudgetTableComponent } from './cash-book-entry-budget-tabl
     MatTabsModule,
     MatIconModule,
     MatInputModule,
+    MatExpansionModule,
   ],
   providers: [{
     provide: LOCALE_ID,

@@ -1,51 +1,63 @@
 <br>
 
-<form>
-  <mat-form-field *ngIf="edit&&cashBook" appearance="fill" style="margin-left: 15px; font-size: 25px; vertical-align: middle; width: 45%;">
-    <input matInput [(ngModel)]="cashBook.name" name="cashBookName">
+<form style="margin-left: 15px; margin-top: 15px;">
+  <mat-form-field *ngIf="cashBook" appearance="fill" float-label="always" style="width: 45%;">
+    <strong><input matInput [(ngModel)]="cashBook.name" name="cashBookName" [disabled]="!edit" style="font-size: 35px;"></strong>
   </mat-form-field>
-  <strong *ngIf="!edit&&cashBook" style="padding-left: 15px; font-size: 35px; vertical-align: middle;">{{cashBook.name}}</strong>
-  &nbsp;
-  <button *ngIf="!edit" mat-icon-button color="primary" (click)="clickEditButton()">
-    <mat-icon>edit</mat-icon>
+  <br>
+
+  <button *ngIf="!edit" mat-raised-button color="basic" (click)="clickEditButton()">
+    Bearbeiten &nbsp; <mat-icon>edit</mat-icon>
   </button>
-  <button *ngIf="edit" mat-icon-button color="primary" (click)="clickSaveButton(cashBook)">
-    <mat-icon>save</mat-icon>
+  <button *ngIf="edit" mat-raised-button color="basic" (click)="clickSaveButton(cashBook)">
+    Speichern &nbsp; <mat-icon>save</mat-icon>
   </button>
 
-  <mat-card style="margin: 15px;">
-    <table *ngIf="cashBook">
-      <tr>
-        <td>Ist-Vermögen (01.01.2020): </td>
-        <td style="padding-left: 25px; float: right;">
-          <mat-form-field *ngIf="edit&&cashBook" appearance="fill" style="text-align:center">
-            <input matInput [(ngModel)]="cashBook.initialWealth" name="cashBookInitialWealth">
-            <mat-icon matSuffix>euro_symbol</mat-icon>
-          </mat-form-field>
-          <div *ngIf="!edit&&cashBook">{{cashBook.initialWealth | currency:'EUR'}}</div>
-        </td>
-        <td style="padding-left: 100px;">Ist-Vermögen (31.12.2020): </td>
-        <td style="padding-left: 25px; float: right;">{{cashBook.finalWealth | currency:'EUR'}}</td>
-        <td style="padding-left: 100px;"><strong>Ergebnis: </strong></td>
-        <td style="padding-left: 25px; float: right;"><strong>{{cashBook.result | currency:'EUR'}}</strong></td>
-      </tr>
-      <br>
-      <tr>
-        <td>Kalkulatorischer Vermögensstand (01.01.2020): </td>
-        <td style="padding-left: 25px; float: right;">
-          <mat-form-field *ngIf="edit&&cashBook" appearance="fill" style="text-align:center">
-            <input matInput [(ngModel)]="cashBook.calculatedInitialWealth" name="cashBookCalculatedInitialWealth">
-            <mat-icon matSuffix>euro_symbol</mat-icon>
-          </mat-form-field>
-          <div *ngIf="!edit&&cashBook">{{cashBook.calculatedInitialWealth | currency:'EUR'}}</div>
-        </td>
-        <td style="padding-left: 100px;">Kalkulatorischer Vermögensstand (31.12.2020): </td>
-        <td style="padding-left: 25px; float: right;">{{cashBook.calculatedFinalWealth | currency:'EUR'}}</td>
-        <td style="padding-left: 100px;"><strong>Kalkulatorisches Ergebnis: </strong></td>
-        <td style="padding-left: 25px; float: right;"><strong>{{cashBook.calculatedResult | currency:'EUR'}}</strong></td>
-      </tr>
-    </table>
-  </mat-card>
+  <mat-expansion-panel *ngIf="cashBook" style="margin-top: 40px">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <strong>Neuer Kontostand: {{cashBook.finalWealth | currency: 'EUR'}}</strong>
+      </mat-panel-title>
+      <mat-panel-description>
+        Alter Kontostand: {{cashBook.initialWealth | currency: 'EUR'}} / Ergebnis: {{cashBook.result | currency: 'EUR'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <hr> <br>
+
+    <mat-form-field *ngIf="cashBook" appearance="outline" class="headerFormField">
+      <mat-label>Ist-Vermögen (01.01.2020)</mat-label>
+      <input matInput [(ngModel)]="cashBook.initialWealth" name="cashBookInitialWealth" [disabled]="!edit" style="align-content: center;">
+      <mat-icon matSuffix>euro_symbol</mat-icon>
+    </mat-form-field>
+    <mat-form-field *ngIf="cashBook" appearance="outline" class="headerFormField">
+      <mat-label>Ist-Vermögen (31.12.2020)</mat-label>
+      <input matInput [(ngModel)]="cashBook.finalWealth" name="cashBookFinalWealth" disabled style="align-content: center;">
+      <mat-icon matSuffix>euro_symbol</mat-icon>
+    </mat-form-field>
+    <mat-form-field *ngIf="cashBook" appearance="outline" class="headerFormField">
+      <mat-label>Ergebnis</mat-label>
+      <input matInput [(ngModel)]="cashBook.result" name="cashBookResult" disabled style="align-content: center;">
+      <mat-icon matSuffix>euro_symbol</mat-icon>
+    </mat-form-field> <br>
+
+    <mat-form-field *ngIf="cashBook" appearance="outline" class="headerFormField">
+      <mat-label>Kalkulatorischer Vermögensstand (01.01.2020)</mat-label>
+      <input matInput [(ngModel)]="cashBook.calculatedInitialWealth" name="cashBookCalculatedInitialWealth" [disabled]="!edit" style="align-content: center;">
+      <mat-icon matSuffix>euro_symbol</mat-icon>
+    </mat-form-field>
+    <mat-form-field *ngIf="cashBook" appearance="outline" class="headerFormField">
+      <mat-label>Kalkulatorischer Vermögensstand (31.12.2020)</mat-label>
+      <input matInput [(ngModel)]="cashBook.calculatedFinalWealth" name="cashBookCalculatedFinalWealth" disabled style="align-content: center;">
+      <mat-icon matSuffix>euro_symbol</mat-icon>
+    </mat-form-field>
+    <mat-form-field *ngIf="cashBook" appearance="outline" class="headerFormField">
+      <mat-label>Kalkulatorisches Ergebnis</mat-label>
+      <input matInput [(ngModel)]="cashBook.calculatedResult" name="cashBookCalculatedResult" disabled style="align-content: center;">
+      <mat-icon matSuffix>euro_symbol</mat-icon>
+    </mat-form-field>
+
+  </mat-expansion-panel> <br> <br>
 
 </form>
 
