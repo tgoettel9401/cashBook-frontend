@@ -40,7 +40,7 @@ export class CashBookDetailsComponent implements OnInit {
     this.cashBookService.putCashBook(cashBook).subscribe(
       data => this.cashBook = data,
       error => console.log(error),
-    )
+    );
 
     // Set edit to false.
     this.edit = false;
